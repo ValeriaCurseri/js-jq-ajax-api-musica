@@ -13,7 +13,6 @@ $(document).ready(function() {
                     var template = Handlebars.compile(source);
 
                     var context = risposta.response[i];
-                    console.log(risposta.response[i]);
                     var html = template(context);
 
                     $('.cds-container').append(html);                           // append il template completato nel DOM
@@ -27,21 +26,69 @@ $(document).ready(function() {
 
     // BONUS: tramite un filtro select permetto all'utente di filtrare i cd
 
-    $('#generi .genere').click(function(){
-        alert('selezionato option');
+    $("select#generi").change(function(){
+
+        $('.cd').hide();
 
         var valore = $(this).val();                             // memorizzo il valore dell'option cliccato
         console.log(valore);
 
-        for (var i = 0; i < risposta.response.length; i++){     // ciclo tutto l'array di oggetti
-            if (risposta.response[i].genre == valore){          // SE l'oggetto ha genere == a valore
-                risposta.response[i].show();                    // lo mostro
-            } else {                                            // ALTRIMENTI
-                risposta.response[i].hide();                    // lo nascondo
+        $('.cd').each(function(){
+            console.log('parte each');
+            if ($(this).hasClass(valore)){
+                $(this).show();
+            } else {
+                console.log('else');
             }
+        })
 
-        }
+        // $('#generi .genere:selected').each(function(){
+        //
+        //     valore = $(this).val();
+        //     // var valore = $(this).val();                             // memorizzo il valore dell'option cliccato
+        //     console.log(valore);
+        //
+        //     $.ajax(
+        //         {
+        //             url: 'https://flynn.boolean.careers/exercises/api/array/music',     // API per avere a disposizione il contenuto
+        //             method: "GET",
+        //             success: function (risposta) {
+        //                 for (var i = 0; i < risposta.response.length; i++){     // ciclo tutto l'array di oggetti
+        //                     console.log(risposta.response[i].genre);
+        //                     if (risposta.response[i].genre == valore || valore == 'tutti'){          // SE l'oggetto ha genere == a valore
+        //                         // risposta.response[i].show();                    // lo mostro
+        //                         console.log('mostra');
+        //                     } else {                                            // ALTRIMENTI
+        //                         // risposta.response[i].hide();                    // lo nascondo
+        //                         console.log('nascondi');
+        //                     }
+        //
+        //                 }
+        //             },
+        //             error: function(){
+        //                 alert:('Ci sono stati degli errori');
+        //             }
+        //         }
+        //     );
+        //
+        // });
+    })
 
-    });
+    // $('#generi .genere:selected').each(function(){
+    //     // alert('selezionato option');
+    //
+    //     var valore = $(this).val();                             // memorizzo il valore dell'option cliccato
+    //     console.log(valore);
+    //
+    //     for (var i = 0; i < risposta.response.length; i++){     // ciclo tutto l'array di oggetti
+    //         if (risposta.response[i].genre == valore){          // SE l'oggetto ha genere == a valore
+    //             risposta.response[i].show();                    // lo mostro
+    //         } else {                                            // ALTRIMENTI
+    //             risposta.response[i].hide();                    // lo nascondo
+    //         }
+    //
+    //     }
+    //
+    // });
 
 });
