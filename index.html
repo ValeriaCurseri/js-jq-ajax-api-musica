@@ -16,7 +16,16 @@
             </div>
         </header>
 
+        <select id="generi">
+            <option class='genere' value="tutti">Tutti</option>
+            <option class='genere' value="rock">Rock</option>
+            <option class='genere' value="pop">Pop</option>
+            <option class='genere' value="jazz">Jazz</option>
+            <option class='genere' value="metal">Metal</option>
+        </select>
+
         <div class="cds-container container">
+
             <!-- Disco ad esempio -->
             <!-- <div class="cd">
                 <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
@@ -27,7 +36,7 @@
         </div>
 
         <script id="entry-template" type="text/x-handlebars-template">
-            <div class="cd">
+            <div class="cd {{genre}}">
                 <img src="{{poster}}" alt="">
                 <h3>{{title}}</h3>
                 <span class="author">{{author}}</span>
