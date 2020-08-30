@@ -26,19 +26,19 @@ $(document).ready(function() {
 
     // BONUS: tramite un filtro select permetto all'utente di filtrare i cd
 
-    $("select#generi").change(function(){
+    $("select#generi").change(function(){                       // al cambiare del valore di select
 
-        $('.cd').hide();
+        $('.cd').hide();                                        // 1. nascondo tutti i cd
 
-        var valore = $(this).val();                             // memorizzo il valore dell'option cliccato
+        var valore = $(this).val();                             // 2. memorizzo il valore dell'option cliccato
         console.log(valore);
 
-        $('.cd').each(function(){
+        $('.cd').each(function(){                               // 3. ciclo tutti i cd
             console.log('parte each');
-            if ($(this).hasClass(valore)){
-                $(this).show();
-            } else {
-                console.log('else');
+            if ($(this).hasClass(valore)){                      // SE il cd ciclato ha class = valore
+                $(this).show();                                 // lo mostro
+            } else {                                            // ALTRIMENTI
+                console.log('else');                            // non lo mostro
             }
         })
 
