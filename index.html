@@ -18,10 +18,10 @@
 
         <select id="generi">
             <option value="tutti">Tutti</option>
-            <option value="Rock">Rock</option>
+            <!-- <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
             <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
+            <option value="Metal">Metal</option> -->
         </select>
 
         <div class="cds-container container">
@@ -42,6 +42,10 @@
                 <span class="author">{{author}}</span>
                 <span class="year">{{year}}</span>
             </div>
+        </script>
+
+        <script id="entry-select" type="text/x-handlebars-template">
+            <option value="{{genre}}">{{genre}}</option>
         </script>
 
         <script src="main.js" charset="utf-8"></script>

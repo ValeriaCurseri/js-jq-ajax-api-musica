@@ -21,6 +21,7 @@ $(document).ready(function() {
 
                 // OPZIONE 2 CON FZ
                 insertCd(risposta);
+                insertSelect(risposta);
             },
             error: function(){
                 alert:('Ci sono stati degli errori');
@@ -120,5 +121,25 @@ function insertCd(data){
         var html = template(context);
 
         $('.cds-container').append(html);                           // append il template completato nel DOM
+    }
+}
+
+function insertSelect(data){
+
+    var source = $("#entry-select").html();
+    var template = Handlebars.compile(source);
+    var arrayGenere = [];
+
+    for (var i = 0; i < data.response.length; i++){
+
+
+        if (!arrayGenere.includes(data.response[i].genre)){
+            arrayGenere.push(data.response[i].genre);
+            var context = data.response[i];
+            var html = template(context);
+            $('#generi').append(html);
+        }
+
+
     }
 }
