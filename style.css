@@ -10,20 +10,25 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    width: 1070px;
-    height: 100%;
-    margin: 0 auto;
-}
-
 header {
     width: 100%;
-    height: 70px;
     background: rgb(46, 58, 70);
 }
-header img {
-    height: 50px;
-    margin-top: 10px;
+
+header h1 {
+    color:#fff;
+}
+
+select#generi{
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+select#generi option{
+    background-color:rgb(46, 58, 70);
 }
 
 .cds-container {
